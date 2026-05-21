@@ -1,0 +1,243 @@
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img, video, iframe {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: rgba(255, 255, 255, 0.829);
+    color: rgb(102, 102, 102);
+    position: relative; /* Âncora global de segurança */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+    max-width: 1200px;
+    margin: 10px auto 0 auto; /* Centraliza horizontalmente */
+}
+
+/* ==========================================================================
+   2. SEÇÃO SOBRE MIM (.aboutme)
+   ========================================================================== */
+.aboutme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px 40px 20px; /* Aumentado o topo para dar espaço aos botões */
+    border-radius: 5px;
+    position: relative; /* Âncora direta para os botões do topo */
+}
+
+.aboutme img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.aboutme h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.aboutme p {
+    padding: 10px 5px;
+    line-height: 1.6;
+    letter-spacing: 2px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   3. SEÇÃO DE CONTATOS E BOTÕES SOCIAIS
+   ========================================================================== */
+.contacts {
+    display: flex;
+    justify-content: center; /* Centraliza a lista na tela de forma limpa */
+    padding: 10px 20px;
+}
+
+.contacts ul {
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+.contacts ul li a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-project {
+    display: inline-block;
+    border: 1px solid rgb(255, 255, 255);
+    color: #fff;
+    background-color: #1e293b;
+    border-radius: 6px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-project:hover {
+    cursor: pointer;
+    background-color: rgb(0, 140, 255);
+    border-color: rgb(0, 140, 255);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -3px rgba(0, 140, 255, 0.4);
+}
+
+/* ==========================================================================
+   4. BOTÕES FLUTUANTES DO TOPO (TEMA E IDIOMA)
+   ========================================================================== */
+.top-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.btn-theme {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-theme:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   5. POP-UP MODAL (E-MAIL)
+   ========================================================================== */
+.modal {
+    display: none; /* Começa escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    min-width: 280px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.email-texto {
+    font-weight: 500;
+    color: #0f172a;
+    margin-top: 10px;
+    user-select: all; /* Permite selecionar o texto inteiro com um clique */
+}
+
+.modal.mostrar-modal {
+    display: flex; /* Ativado via JavaScript */
+}
+
+/* ==========================================================================
+   6. RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+}
+
+footer p {
+    color: #000000;
+}
+
+/* ==========================================================================
+   7. REGRAS DO MODO ESCURO (DARK MODE)
+   ========================================================================== */
+body.dark-mode {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+body.dark-mode .aboutme h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .btn-theme {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+body.dark-mode .btn-theme:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode footer {
+    border-top: 1px solid #334155;
+}
+
+body.dark-mode footer p {
+    color: #94a3b8;
+}
+
+body.dark-mode .modal-content {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .modal-content h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .email-texto {
+    color: #38bdf8;
+}
+
+body.dark-mode .close-btn:hover {
+    color: #ffffff;
+}
